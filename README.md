@@ -1,31 +1,43 @@
-# XeroLogin 🔐
+# XeroLogin
 
-XeroLogin is a simple register and login plugin for Paper 1.21+ servers  
-It is lightweight easy to use and clear for players  
-
----
-
-## ✨ Features
-- Register with `/register <password> <repeat password>`  
-- Login with `/login <password>`  
-- Change password with `/xerologin changepass <oldPassword> <newPassword>`  
-- No session system players log in each time they join  
-- Messages use blue for titles and white for instructions  
+A simple clean register and login plugin for Paper 1.21.11 servers by **XeroDev**
 
 ---
 
-## 📥 Installation
-- Download the latest release from Releases
-- Place the jar file into your server plugins folder  
-- Restart your server  
-- Players can now register and log in  
+## What it does
+
+- New players see a blue **REGISTER** title with white subtext  
+  `Type /register <password> <repeat>`
+- Registered players see a blue **LOGIN** title with white subtext  
+  `Type /login <password> to login`
+- No persistent sessions by default — every join requires `/login` again  
+  Sessions are optional and configurable in `config.yml`
+- While unauthenticated players are frozen — no movement no chat no commands except `/register` and `/login` (all configurable)
 
 ---
 
-## 🛠️ Building from source
-- Install Java 17 and Maven  
-- Clone the repository  
-```bash
-git clone https://github.com/ventz/XeroLogin.git
-cd XeroLogin
-mvn clean package
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `/register <password> <repeat>` | Create your account |
+| `/login <password>` | Log in |
+| `/logout` | Log out manually |
+| `/changepassword <old> <new>` | Change your password |
+| `/xerologin reload` | Reload config.yml |
+| `/xerologin changepass <player> <newPassword>` | Admin force‑change a password |
+| `/xerologin unregister <player>` | Admin wipe an account so it can register again |
+
+Admin commands require the `xerologin.admin` permission (OP by default)
+
+---
+
+## Configuration
+
+Edit `config.yml` to change messages and titles toggle sessions set min and max password length and control what is blocked before login
+
+---
+
+## Building it yourself
+
+1. Install JDK 21 and Gradle
